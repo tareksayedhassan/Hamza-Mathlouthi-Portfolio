@@ -49,8 +49,6 @@ modern-portfolio/
   |- components/
     |-- Avatar.jsx
     |-- Bulb.jsx
-    |-- CardLeft.jsx
-    |-- CardRight.jsx
     |-- Circles.jsx
     |-- Header.jsx
     |-- Layout.jsx
@@ -63,6 +61,9 @@ modern-portfolio/
     |-- TopLeftImg.jsx
     |-- Transition.jsx
     |-- WorkSlider.jsx
+  |- i18n/
+    |-- I18nProvider.jsx
+    |-- locales.js
   |- pages/
     |-- about/
     |-- contact/
