@@ -64,7 +64,7 @@
 }
 
 .page-section {
-  @apply relative min-h-[100dvh] bg-primary/30 px-4 pb-28 pt-32 sm:px-6 sm:pt-36 xl:pb-12 xl:pt-32;
+  @apply relative min-h-[100dvh] overflow-clip bg-primary/30 px-4 pb-28 pt-32 sm:px-6 sm:pt-36 xl:pb-12 xl:pt-32;
 }
 
 .page-container {

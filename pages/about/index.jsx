@@ -15,7 +15,7 @@ const About = () => {
   const counters = t("about.counters");
 
   return (
-    <div className="page-section text-center xl:text-start">
+    <div className="page-section flex items-center text-center xl:text-start">
       <Circles />
 
       {/* avatar img */}
@@ -29,7 +29,7 @@ const About = () => {
         <Avatar />
       </motion.div>
 
-      <div className="page-container flex min-h-[calc(100dvh-12rem)] flex-col items-center gap-10 xl:flex-row xl:gap-8">
+      <div className="page-container flex flex-col items-center gap-10 xl:flex-row xl:gap-8">
         {/* text */}
         <div className="flex min-w-0 flex-1 flex-col justify-center">
           <motion.h2

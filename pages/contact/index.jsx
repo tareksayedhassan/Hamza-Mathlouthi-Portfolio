@@ -34,7 +34,7 @@ const Contact = () => {
 
   return (
     <div className="page-section flex items-center">
-      <div className="page-container flex min-h-[calc(100dvh-12rem)] items-center justify-center text-center">
+      <div className="page-container flex items-center justify-center text-center">
         {/* text & form */}
         <div className="flex flex-col w-full max-w-[700px]">
           {/* text */}

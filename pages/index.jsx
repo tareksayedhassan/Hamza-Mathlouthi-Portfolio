@@ -12,10 +12,10 @@ const Home = () => {
   const isRtl = direction === "rtl";
 
   return (
-    <div className="relative min-h-[100dvh] bg-primary/60 px-4 pb-32 pt-28 sm:px-6 xl:pb-10">
+    <div className="relative flex min-h-[100dvh] overflow-clip bg-primary/60 px-4 pb-32 pt-28 sm:px-6 xl:pb-10">
       {/* text */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-black/30 to-black/10" aria-hidden />
-        <div className="page-container flex min-h-[calc(100dvh-10rem)] flex-col justify-center text-center xl:items-start xl:pt-28 xl:text-start">
+        <div className="page-container flex flex-1 flex-col justify-center text-center xl:items-start xl:pt-28 xl:text-start">
           {/* title */}
           <motion.h1
             variants={fadeIn("down", 0.2)}
