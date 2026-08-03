@@ -20,41 +20,43 @@ const WorkSlider = () => {
         clickable: true,
       }}
       modules={[Pagination]}
-      className="h-[280px] sm:h-[480px]"
+      className="w-full pb-10"
     >
       <SwiperSlide>
-          <div className="grid grid-cols-2 grid-rows-2 gap-4">
+          <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">
             {projects.map((project, projectIndex) => (
               <div
-                className="relative rounded-lg overflow-hidden flex items-center justify-center group"
+                className="group relative min-w-0 overflow-hidden rounded-lg"
                 key={project.title}
               >
-                <div className="flex items-center justify-center relative overflow-hidden group">
+                <article className="group relative aspect-[5/3] overflow-hidden bg-primary/50">
                   {/* image */}
                   <Image
                     src={projectImages[projectIndex]}
                     alt=""
                     width={500}
                     height={300}
+                    sizes="(max-width: 639px) 100vw, (max-width: 1199px) 50vw, 33vw"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
                   {/* overlay gradient */}
                   <div
-                    className="absolute inset-0 bg-gradient-to-l from-transparent via-[#e838cc] to-[#4a22bd] opacity-0 group-hover:opacity-80 transition-all duration-700"
+                    className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/25 to-transparent opacity-80 transition-all duration-700 sm:opacity-0 sm:group-hover:opacity-80"
                     aria-hidden
                   />
 
                   {/* title */}
-                  <div className="absolute bottom-0 translate-y-full group-hover:-translate-y-10 group-hover:xl:-translate-y-20 transition-all duration-300">
-                    <div className="flex items-center gap-x-2 text-[13px] tracking-[0.08em] px-3 text-center" title={project.description}>
-                      <div className="delay-100">{project.title}</div>
+                  <div className="absolute inset-x-0 bottom-0 p-4 transition-all duration-300 sm:translate-y-full sm:group-hover:translate-y-0 sm:group-focus-within:translate-y-0">
+                    <div className="flex min-w-0 items-center justify-center gap-2 text-center text-sm tracking-wide" title={project.description}>
+                      <h3 className="min-w-0 font-medium">{project.title}</h3>
                       {/* icon */}
                       <div className="text-xl translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-150">
                         <BsArrowRight className={direction === "rtl" ? "rotate-180" : ""} aria-hidden />
                       </div>
                     </div>
                   </div>
-                </div>
+                </article>
               </div>
             ))}
           </div>

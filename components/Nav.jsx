@@ -35,20 +35,22 @@ const Nav = () => {
   const { direction, t } = useI18n();
 
   return (
-    <nav className="flex flex-col items-center xl:justify-center gap-y-4 fixed h-max bottom-0 mt-auto xl:right-[2%] z-50 top-0 w-full xl:w-16 xl:max-w-md xl:h-screen">
-      <div className="flex w-full xl:flex-col items-center justify-between xl:justify-center gap-y-10 px-4 md:px-40 xl:px-0 h-[80px] xl:h-max py-8 bg-white/10 backdrop-blur-sm text-3xl xl:text-xl xl:rounded-full">
-        {navData.map((link, i) => (
+    <nav aria-label="Primary" className="fixed inset-x-0 bottom-0 z-50 flex justify-center xl:inset-y-0 xl:start-auto xl:end-[2%] xl:w-16 xl:items-center">
+      <div className="flex h-20 w-full items-center justify-around bg-primary/90 px-2 text-2xl shadow-2xl backdrop-blur-md xl:h-auto xl:flex-col xl:gap-7 xl:rounded-full xl:bg-white/10 xl:px-3 xl:py-5 xl:text-xl">
+        {navData.map((link) => (
           <Link
             className={`${
               link.path === pathname && "text-accent"
-            } relative flex items-center group hover:text-accent transition-all duration-300`}
+            } group relative flex min-h-11 min-w-11 items-center justify-center rounded-full hover:text-accent transition-all duration-300`}
             href={link.path}
-            key={i}
+            key={link.path}
+            aria-label={t(link.nameKey)}
+            aria-current={link.path === pathname ? "page" : undefined}
           >
             {/* tolltip */}
             <div
               role="tooltip"
-              className={`absolute hidden xl:group-hover:flex ${direction === "rtl" ? "pl-14 left-0" : "pr-14 right-0"}`}
+              className={`absolute hidden whitespace-nowrap xl:group-hover:flex xl:group-focus-within:flex ${direction === "rtl" ? "ps-14 start-0" : "pe-14 end-0"}`}
             >
               <div className="bg-white relative flex text-primary items-center p-[6px] rounded-[3px]">
                 <div className="text-[12px] leading-none font-semibold capitalize">

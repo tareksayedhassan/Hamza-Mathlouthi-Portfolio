@@ -36,21 +36,21 @@ const ServiceSlider = () => {
       }}
       modules={[FreeMode, Pagination]}
       freeMode
-      className="h-[240px] sm:h-[340px]"
+      className="w-full pb-10"
     >
       {serviceData.map((item, i) => {
         const Icon = serviceIcons[i];
         return <SwiperSlide key={item.title}>
-          <div className="bg-[rgba(65,47,123,0.15)] h-max rounded-lg px-6 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:bg-[rgba(89,65,169,0.15)] transition-all duration-300">
+          <article className="group flex min-h-[250px] min-w-0 flex-col rounded-lg bg-[rgba(65,47,123,0.15)] px-5 py-6 transition-all duration-300 hover:bg-[rgba(89,65,169,0.15)] sm:min-h-[310px] sm:px-6 sm:py-8">
             {/* icon */}
             <div className="text-4xl text-accent mb-4">
               <Icon aria-hidden />
             </div>
 
             {/* title & description */}
-            <div className="mb-8">
-              <div className="mb-2 text-lg">{item.title}</div>
-              <p className="max-w-[350px] leading-normal">{item.description}</p>
+            <div className="mb-6 min-w-0 flex-1">
+              <h3 className="mb-2 text-lg font-medium leading-snug">{item.title}</h3>
+              <p className="leading-relaxed">{item.description}</p>
             </div>
 
             {/* arrow */}
@@ -60,7 +60,7 @@ const ServiceSlider = () => {
                 aria-hidden
               />
             </div>
-          </div>
+          </article>
         </SwiperSlide>;
       })}
     </Swiper>

@@ -15,7 +15,7 @@ const About = () => {
   const counters = t("about.counters");
 
   return (
-    <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+    <div className="page-section text-center xl:text-start">
       <Circles />
 
       {/* avatar img */}
@@ -29,9 +29,9 @@ const About = () => {
         <Avatar />
       </motion.div>
 
-      <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
+      <div className="page-container flex min-h-[calc(100dvh-12rem)] flex-col items-center gap-10 xl:flex-row xl:gap-8">
         {/* text */}
-        <div className="flex-1 flex flex-col justify-center">
+        <div className="flex min-w-0 flex-1 flex-col justify-center">
           <motion.h2
             variants={fadeIn("right", 0.2)}
             initial="hidden"
@@ -45,7 +45,7 @@ const About = () => {
             variants={fadeIn("right", 0.4)}
             initial="hidden"
             animate="show"
-            className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
+            className="flow-copy mx-auto mb-6 max-w-xl px-2 xl:mx-0 xl:mb-10 xl:px-0"
           >
             {t("about.summary")}
           </motion.p>
@@ -55,13 +55,13 @@ const About = () => {
             variants={fadeIn("right", 0.6)}
             initial="hidden"
             animate="show"
-            className="hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
+            className="mx-auto mb-8 hidden w-full max-w-2xl md:flex xl:mx-0"
           >
-            <div className="flex flex-1 xl:gap-x-6">
+            <div className="grid w-full grid-cols-2 gap-6 lg:grid-cols-4">
               {counters.map((counter, counterIndex) => (
-                <div key={counter.label} className={`relative flex-1 ${counterIndex < counters.length - 1 ? "after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0" : ""}`}>
+                <div key={counter.label} className="relative min-w-0">
                   <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2"><CountUp start={0} end={counter.value} duration={5} />+</div>
-                  <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">{counter.label}</div>
+                  <div className="text-xs uppercase tracking-wide leading-[1.5]">{counter.label}</div>
                 </div>
               ))}
             </div>
@@ -74,36 +74,40 @@ const About = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="flex flex-col w-full xl:max-w-[48%] h-[480px]"
+          className="flex min-w-0 w-full flex-col xl:max-w-[52%]"
         >
-          <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
+          <div className="mx-auto mb-5 flex max-w-full flex-wrap justify-center gap-x-5 gap-y-4 xl:mx-0 xl:justify-start xl:gap-x-8" role="tablist" aria-label={t("about.title")}>
             {aboutData.map((item, itemI) => (
-              <div
+              <button
+                type="button"
                 key={item.title}
                 className={`${
                   index === itemI &&
                   "text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300"
-                } cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
+                } relative min-h-11 capitalize after:absolute after:bottom-0 after:start-0 after:h-[2px] after:w-8 after:bg-white xl:text-lg`}
                 onClick={() => setIndex(itemI)}
+                role="tab"
+                aria-selected={index === itemI}
+                aria-controls="about-tab-panel"
               >
                 {item.title}
-              </div>
+              </button>
             ))}
           </div>
 
-          <div className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start overflow-y-auto scrollbar-thin scrollbar-thumb-white/20">
+          <div id="about-tab-panel" role="tabpanel" className="flex min-w-0 flex-col items-center gap-y-4 py-2 xl:items-start xl:py-6">
             {aboutData[index].info.map((item, itemI) => (
               <div
                 key={`${item.title}-${itemI}`}
-                className="flex-1 flex flex-col max-w-max gap-x-2 items-center xl:items-start text-center xl:text-left text-white/60"
+                className="flex min-w-0 w-full flex-col items-center text-center text-white/60 xl:items-start xl:text-start"
               >
                 {/* title */}
-                <div className="flex flex-col md:flex-row gap-x-2 items-center xl:items-start">
+                <div className="flex min-w-0 flex-col items-center gap-1 md:flex-row md:flex-wrap xl:items-start">
                   <div className="font-light mb-2 md:mb-0">{item.title}</div>
                   {item.stage && <div className="hidden md:flex">—</div>}
                   <div>{item.stage}</div>
                 </div>
-                {item.description && <p className="text-xs leading-relaxed max-w-[560px] mt-1">{item.description}</p>}
+                {item.description && <p className="mt-2 max-w-[65ch] text-sm leading-relaxed">{item.description}</p>}
 
               </div>
             ))}

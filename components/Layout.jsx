@@ -16,7 +16,7 @@ const sora = Sora({
 const Layout = ({ children }) => {
   const { direction, t } = useI18n();
   return (
-    <main
+    <div
       dir={direction}
       className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative`}
     >
@@ -40,8 +40,8 @@ const Layout = ({ children }) => {
       <Header />
 
       {/* main content */}
-      {children}
-    </main>
+      <main>{children}</main>
+    </div>
   );
 };
 

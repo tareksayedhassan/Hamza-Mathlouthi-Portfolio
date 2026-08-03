@@ -7,8 +7,8 @@ import { useI18n } from "../../i18n/I18nProvider";
 const Testimonials = () => {
   const { t } = useI18n();
   return (
-    <div className="h-full bg-primary/30 py-32 text-center">
-      <div className="container mx-auto h-full flex flex-col justify-center">
+    <div className="page-section text-center">
+      <div className="page-container flex min-h-[calc(100dvh-12rem)] flex-col justify-center">
         <motion.h2
           variants={fadeIn("up", 0.2)}
           initial="hidden"

@@ -12,17 +12,17 @@ const Home = () => {
   const isRtl = direction === "rtl";
 
   return (
-    <div className="bg-primary/60 h-full">
+    <div className="relative min-h-[100dvh] bg-primary/60 px-4 pb-32 pt-28 sm:px-6 xl:pb-10">
       {/* text */}
-      <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10">
-        <div className="text-center flex flex-col justify-center xl:pt-40 xl:text-left h-full container mx-auto">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-black/30 to-black/10" aria-hidden />
+        <div className="page-container flex min-h-[calc(100dvh-10rem)] flex-col justify-center text-center xl:items-start xl:pt-28 xl:text-start">
           {/* title */}
           <motion.h1
             variants={fadeIn("down", 0.2)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className={`h1 xl:max-w-[58%] ${isRtl ? "xl:ml-auto" : "xl:mr-auto"}`}
+            className="h1 max-w-4xl xl:max-w-[62%]"
           >
             {t("home.title")} <br />
             <span className="text-accent">{t("home.accent")}</span>
@@ -34,7 +34,7 @@ const Home = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className={`mx-auto mb-10 max-w-sm xl:mb-16 xl:max-w-xl ${isRtl ? "xl:ml-auto xl:mr-0" : "xl:ml-0 xl:mr-auto"}`}
+            className="flow-copy mx-auto mb-8 max-w-xl xl:mx-0 xl:mb-10"
           >
             {t("home.summary")}
           </motion.p>
@@ -53,7 +53,6 @@ const Home = () => {
             <ProjectsBtn />
           </motion.div>
         </div>
-      </div>
       {/* image */}
       <div
         className={`absolute bottom-0 h-full w-[min(1280px,100vw)] ${isRtl ? "left-0" : "right-0"}`}
@@ -75,7 +74,7 @@ const Home = () => {
           animate="show"
           exit="hidden"
           transition={{ duration: 1, ease: "easeInOut" }}
-          className={`absolute bottom-0 flex h-auto max-h-[72vh] w-[clamp(440px,36vw,560px)] items-end ${isRtl ? "left-[3%] justify-start" : "right-[3%] justify-end"}`}
+          className={`absolute bottom-0 hidden h-auto max-h-[72vh] w-[clamp(440px,36vw,560px)] items-end xl:flex ${isRtl ? "left-[3%] justify-start" : "right-[3%] justify-end"}`}
         >
           <Avatar />
         </motion.div>

@@ -6,11 +6,11 @@ import { useI18n } from "../i18n/I18nProvider";
 const Header = () => {
   const { t } = useI18n();
   return (
-    <header className="absolute z-30 w-full items-center px-16 xl-px-0 xl:h-[90px]">
+    <header className="absolute inset-x-0 top-0 z-40 w-full px-4 sm:px-6">
       <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-y-6 py-8">
+        <div className="flex min-h-24 items-center justify-between gap-4 py-5">
           {/* logo */}
-          <Link href="/" aria-label={t("accessibility.logo")} className="text-xl md:text-2xl font-semibold tracking-tight">
+          <Link href="/" aria-label={t("accessibility.logo")} className="min-w-0 text-lg font-semibold tracking-tight sm:text-2xl">
             {t("home.title")}<span className="text-accent">.</span>
           </Link>
 

@@ -33,8 +33,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="h-full bg-primary/30">
-      <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
+    <div className="page-section flex items-center">
+      <div className="page-container flex min-h-[calc(100dvh-12rem)] items-center justify-center text-center">
         {/* text & form */}
         <div className="flex flex-col w-full max-w-[700px]">
           {/* text */}
@@ -65,10 +65,12 @@ const Contact = () => {
             name="contact"
           >
             {/* input group */}
-            <div className="flex gap-x-6 w-full">
+            <div className="flex w-full flex-col gap-6 sm:flex-row">
               <input type="hidden" name="form-name" value="contact" />
 
+              <label className="sr-only" htmlFor="contact-name">{t("contact.name")}</label>
               <input
+                id="contact-name"
                 type="text"
                 name="name"
                 placeholder={t("contact.name")}
@@ -78,7 +80,9 @@ const Contact = () => {
                 required
                 aria-required
               />
+              <label className="sr-only" htmlFor="contact-email">{t("contact.email")}</label>
               <input
+                id="contact-email"
                 type="email"
                 name="email"
                 placeholder={t("contact.email")}
@@ -89,7 +93,9 @@ const Contact = () => {
                 aria-required
               />
             </div>
+            <label className="sr-only" htmlFor="contact-subject">{t("contact.subject")}</label>
             <input
+              id="contact-subject"
               type="text"
               name="subject"
               placeholder={t("contact.subject")}
@@ -99,7 +105,9 @@ const Contact = () => {
               required
               aria-required
             />
+            <label className="sr-only" htmlFor="contact-message">{t("contact.message")}</label>
             <textarea
+              id="contact-message"
               name="message"
               placeholder={t("contact.message")}
               className="textarea"
@@ -110,7 +118,7 @@ const Contact = () => {
             />
             <button
               type="submit"
-              className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group"
+              className="btn group relative min-w-[170px] max-w-full self-center overflow-hidden rounded-full border border-white/50 px-8 transition-all duration-300 hover:border-accent sm:self-start"
               disabled={isLoading}
               aria-disabled={isLoading}
             >
@@ -119,7 +127,7 @@ const Contact = () => {
               </span>
 
               <BsArrowRight
-                className={`-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px] ${direction === "rtl" ? "rotate-180" : ""}`}
+                className={`absolute text-[22px] opacity-0 transition-all duration-300 group-hover:opacity-100 ${direction === "rtl" ? "rotate-180" : ""}`}
                 aria-hidden
               />
             </button>

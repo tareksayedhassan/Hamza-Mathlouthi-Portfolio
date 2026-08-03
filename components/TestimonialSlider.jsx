@@ -17,11 +17,11 @@ const TestimonialSlider = () => {
         clickable: true,
       }}
       modules={[Navigation, Pagination]}
-      className="h-[400px]"
+      className="w-full pb-12"
     >
       {languageData.map((language) => (
         <SwiperSlide key={language.name}>
-          <div className="flex flex-col items-center md:flex-row gap-x-8 h-full px-16">
+          <div className="flex min-h-[320px] min-w-0 flex-col items-center justify-center gap-8 px-10 sm:px-14 md:flex-row">
             {/* avatar, name, position */}
             <div className="w-full max-w-[300px] flex flex-col xl:justify-center items-center relative mx-auto xl:mx-0">
               <div className="flex flex-col justify-center text-center">
@@ -40,17 +40,17 @@ const TestimonialSlider = () => {
             </div>
 
             {/* quote & message */}
-            <div className="flex-1 flex flex-col justify-center before:w-[1px] xl:before:bg-white/20 xl:before:absolute xl:before:left-0 xl:before:h-[200px] relative xl:pl-20">
+            <div className="relative flex min-w-0 flex-1 flex-col justify-center xl:before:absolute xl:before:inset-y-0 xl:before:start-0 xl:before:w-px xl:before:bg-white/20 xl:ps-20">
               {/* quote icon */}
               <div className="mb-4">
                 <FaLanguage
-                  className="text-4xl xl:text-6xl text-white/20 mx-auto md:mx-0"
+                  className="mx-auto text-4xl text-white/20 md:mx-0 xl:text-6xl"
                   aria-hidden
                 />
               </div>
 
               {/* message */}
-              <div className="xl:text-lg text-center md:text-left">
+              <div className="text-center text-lg md:text-start">
                 {language.level}
               </div>
             </div>

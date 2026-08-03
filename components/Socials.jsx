@@ -5,13 +5,13 @@ const localeOptions = ["ar", "en", "fr"];
 const Socials = () => {
   const { locale, setLocale, t } = useI18n();
   return (
-    <div className="flex items-center gap-x-2 text-sm" role="group" aria-label={t("common.language")}>
+    <div className="flex shrink-0 items-center gap-1 text-xs sm:gap-2 sm:text-sm" role="group" aria-label={t("common.language")}>
       {localeOptions.map((option) => (
         <button
           key={option}
           type="button"
           onClick={() => setLocale(option)}
-          className={`${locale === option ? "bg-accent text-white" : "hover:text-accent"} rounded-full px-3 py-1 uppercase transition-all duration-300`}
+          className={`${locale === option ? "bg-accent text-white" : "hover:text-accent"} min-h-11 min-w-11 rounded-full px-2 uppercase transition-all duration-300 sm:px-3`}
           aria-pressed={locale === option}
         >
           {option}
