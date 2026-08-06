@@ -8,7 +8,8 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { useI18n } from "../i18n/I18nProvider";
 
-const projectImages = ["/thumb1.jpg", "/thumb2.jpg", "/thumb3.jpg", "/thumb4.jpg"];
+const projectImages = ["/mawlha.png", "/swapcar.png", "/thumb3.jpg", "/thumb4.jpg"];
+const projectLinks = ["https://mawlha.com", "https://swapcar.sa/"];
 
 const WorkSlider = () => {
   const { direction, t } = useI18n();
@@ -29,6 +30,13 @@ const WorkSlider = () => {
                 className="group relative min-w-0 overflow-hidden rounded-lg"
                 key={project.title}
               >
+                <a
+                  href={projectLinks[projectIndex]}
+                  target={projectLinks[projectIndex] ? "_blank" : undefined}
+                  rel={projectLinks[projectIndex] ? "noopener noreferrer" : undefined}
+                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  aria-label={projectLinks[projectIndex] ? `${project.title} — ${t("work.view")}` : undefined}
+                >
                 <article className="group relative aspect-[5/3] overflow-hidden bg-primary/50">
                   {/* image */}
                   <Image
@@ -57,6 +65,7 @@ const WorkSlider = () => {
                     </div>
                   </div>
                 </article>
+                </a>
               </div>
             ))}
           </div>

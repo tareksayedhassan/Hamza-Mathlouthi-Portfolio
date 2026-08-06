@@ -15,14 +15,15 @@ const Home = () => {
     <div className="relative flex min-h-[100dvh] overflow-clip bg-primary/60 px-4 pb-32 pt-28 sm:px-6 xl:pb-10">
       {/* text */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-black/30 to-black/10" aria-hidden />
-        <div className="page-container flex flex-1 flex-col justify-center text-center xl:items-start xl:pt-28 xl:text-start">
+        <div className="page-container relative z-10 flex flex-1 flex-col justify-center text-center xl:items-start xl:pt-28 xl:text-start">
+          <div className="rounded-2xl bg-black/20 px-4 py-5 backdrop-blur-sm sm:px-6 xl:max-w-[65%] xl:px-8 xl:py-7">
           {/* title */}
           <motion.h1
             variants={fadeIn("down", 0.2)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="h1 max-w-4xl xl:max-w-[62%]"
+            className="h1 max-w-4xl"
           >
             {t("home.title")} <br />
             <span className="text-accent">{t("home.accent")}</span>
@@ -34,13 +35,14 @@ const Home = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="flow-copy mx-auto mb-8 max-w-xl xl:mx-0 xl:mb-10"
+            className="flow-copy mx-auto max-w-xl xl:mx-0"
           >
             {t("home.summary")}
           </motion.p>
+          </div>
 
           {/* btn */}
-          <div className="flex justify-center xl:hidden relative">
+          <div className="relative mt-8 flex justify-center xl:hidden">
             <ProjectsBtn />
           </div>
           <motion.div
@@ -48,7 +50,7 @@ const Home = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="hidden xl:flex"
+            className="mt-10 hidden xl:flex"
           >
             <ProjectsBtn />
           </motion.div>
