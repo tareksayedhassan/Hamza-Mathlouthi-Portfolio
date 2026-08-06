@@ -99,13 +99,15 @@ const About = () => {
             {aboutData[index].info.map((item, itemI) => (
               <div
                 key={`${item.title}-${itemI}`}
-                className="flex min-w-0 w-full flex-col items-center text-center text-white/60 xl:items-start xl:text-start"
+                className={`flex min-w-0 w-full flex-col items-center text-center xl:items-start xl:text-start ${
+                  item.rowTone === "red" ? "text-red-500" : "text-white/60"
+                }`}
               >
                 {/* title */}
                 <div className="flex min-w-0 flex-col items-center gap-1 md:flex-row md:flex-wrap xl:items-start">
                   <div className="font-light mb-2 md:mb-0">{item.title}</div>
                   {item.stage && <div className="hidden md:flex">—</div>}
-                  <div>{item.stage}</div>
+                  <div className={item.stageTone === "yellow" ? "text-yellow-600" : ""}>{item.stage}</div>
                 </div>
                 {item.description && <p className="mt-2 max-w-[65ch] text-sm leading-relaxed">{item.description}</p>}
 

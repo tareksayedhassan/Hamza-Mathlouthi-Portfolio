@@ -1,8 +1,23 @@
-const sharedSkills = [
-  "Python", "R", "PHP", "SQL", "HTML", "CSS", "JavaScript", "React",
-  "Power BI", "Streamlit", "Google Data Studio", "PostgreSQL",
-  "Microsoft Excel", "Canva", "Jira", "Diagramming Tools",
-];
+const technicalSkillGroups = {
+  en: [
+    { title: "Development", stage: "React · JavaScript · PHP · HTML · CSS · Tailwind CSS" },
+    { title: "Data Analytics", stage: "Python · R · Power BI · Streamlit · Google Data Studio · Microsoft Excel", stageTone: "yellow" },
+    { title: "Databases", stage: "SQL · PostgreSQL" },
+    { title: "Tools", stage: "Canva · Jira · Diagramming Tools", rowTone: "red" },
+  ],
+  fr: [
+    { title: "Développement", stage: "React · JavaScript · PHP · HTML · CSS · Tailwind CSS" },
+    { title: "Analyse de données", stage: "Python · R · Power BI · Streamlit · Google Data Studio · Microsoft Excel", stageTone: "yellow" },
+    { title: "Bases de données", stage: "SQL · PostgreSQL" },
+    { title: "Outils", stage: "Canva · Jira · Outils de diagramme", rowTone: "red" },
+  ],
+  ar: [
+    { title: "التطوير", stage: "React · JavaScript · PHP · HTML · CSS · Tailwind CSS" },
+    { title: "تحليل البيانات", stage: "Python · R · Power BI · Streamlit · Google Data Studio · Microsoft Excel", stageTone: "yellow" },
+    { title: "قواعد البيانات", stage: "SQL · PostgreSQL" },
+    { title: "الأدوات", stage: "Canva · Jira · أدوات الرسم التخطيطي", rowTone: "red" },
+  ],
+};
 
 const sharedContact = {
   phone: "+966 (0) 53 713 0203",
@@ -29,7 +44,7 @@ export const locales = {
       counters: [{ value: 3, label: "Years of BI and IT experience" }, { value: 16, label: "Technical tools and technologies" }, { value: 5, label: "Professional roles" }, { value: 3, label: "Languages" }],
       tabs: [
         { title: "Skills", info: [
-          { title: "Technical", stage: sharedSkills.join(" · ") },
+          ...technicalSkillGroups.en,
           { title: "Leadership", stage: "Cross-functional Leadership · Organizational Excellence · Communication" },
           { title: "Analysis", stage: "Analytical & Problem Solving · Prompt Engineering" },
         ]},
@@ -84,7 +99,7 @@ export const locales = {
       summary: "Expérience dans la gestion des opérations informatiques du secteur automobile de luxe chez DAM Holding, ainsi que dans le développement de sites web, d’un système complet de gestion de centre commercial et de la plateforme Swap Car. Capable de traduire les besoins métier en solutions technologiques concrètes.",
       counters: [{ value: 3, label: "Années d’expérience BI et IT" }, { value: 16, label: "Outils et technologies" }, { value: 5, label: "Fonctions professionnelles" }, { value: 3, label: "Langues" }],
       tabs: [
-        { title: "Compétences", info: [{ title: "Techniques", stage: sharedSkills.join(" · ") }, { title: "Leadership", stage: "Leadership transversal · Excellence organisationnelle · Communication" }, { title: "Analyse", stage: "Analyse et résolution de problèmes · Ingénierie de prompts" }] },
+        { title: "Compétences", info: [...technicalSkillGroups.fr, { title: "Leadership", stage: "Leadership transversal · Excellence organisationnelle · Communication" }, { title: "Analyse", stage: "Analyse et résolution de problèmes · Ingénierie de prompts" }] },
         { title: "Expérience", info: [
           { title: "Responsable informatique — Entreprise automobile de luxe, Riyad", stage: "Janvier 2026 – Aujourd’hui", description: "Gestion du département informatique, de l’infrastructure, des systèmes internes, des serveurs et du cloud. Suivi des performances et de la disponibilité, supervision de Mawlha et Swap Car, livraison de solutions logicielles adaptées, gestion des sites et plateformes, coordination des équipes techniques et amélioration des processus." },
           { title: "Data Analyst — Mindshift", stage: "Septembre 2024", description: "Analyse de grands volumes de données pour dégager tendances et recommandations. Création de visualisations, tableaux de bord et rapports automatisés, en collaboration avec les parties prenantes techniques et métier." },
@@ -119,7 +134,7 @@ export const locales = {
       summary: "يمتلك خبرة في إدارة عمليات تقنية المعلومات بقطاع السيارات الفاخرة لدى DAM Holding، إلى جانب تطوير المواقع الإلكترونية ونظام متكامل لإدارة المولات ومنصة Swap Car. يجيد تحويل متطلبات الأعمال إلى حلول تقنية عملية قائمة على البيانات.",
       counters: [{ value: 3, label: "سنوات خبرة في ذكاء الأعمال والتقنية" }, { value: 16, label: "أداة وتقنية" }, { value: 5, label: "أدوار مهنية" }, { value: 3, label: "لغات" }],
       tabs: [
-        { title: "المهارات", info: [{ title: "تقنية", stage: sharedSkills.join(" · ") }, { title: "القيادة", stage: "قيادة الفرق متعددة التخصصات · التميز التنظيمي · التواصل" }, { title: "التحليل", stage: "التحليل وحل المشكلات · هندسة الأوامر" }] },
+        { title: "المهارات", info: [...technicalSkillGroups.ar, { title: "القيادة", stage: "قيادة الفرق متعددة التخصصات · التميز التنظيمي · التواصل" }, { title: "التحليل", stage: "التحليل وحل المشكلات · هندسة الأوامر" }] },
         { title: "الخبرات", info: [
           { title: "مدير تقنية معلومات — شركة سيارات فاخرة، الرياض", stage: "يناير 2026 – حتى الآن", description: "إدارة قسم تقنية المعلومات والبنية التحتية والأنظمة الداخلية والخوادم والخدمات السحابية، ومتابعة الأداء والتوافر، والإشراف على منصتي Mawlha وSwap Car، وتقديم حلول برمجية مخصصة وإدارة المواقع والمنصات، والتنسيق مع الفرق التقنية وتحسين موثوقية الأنظمة والعمليات." },
           { title: "محلل بيانات — Mindshift", stage: "سبتمبر 2024", description: "تحليل مجموعات بيانات كبيرة لاستخراج الاتجاهات والرؤى القابلة للتنفيذ، وإعداد التصورات ولوحات المعلومات والتقارير الآلية، والتعاون مع أصحاب المصلحة لتحويل احتياجات الأعمال إلى حلول تحليلية موثوقة." },
