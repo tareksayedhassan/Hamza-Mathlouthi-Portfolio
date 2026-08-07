@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import CountUp from "react-countup";
+import { BsLinkedin } from "react-icons/bs";
 
 import Avatar from "../../components/Avatar";
 import Circles from "../../components/Circles";
@@ -24,7 +25,7 @@ const About = () => {
         initial="hidden"
         animate="show"
         exit="hidden"
-        className={`absolute bottom-0 hidden w-[clamp(500px,36vw,580px)] items-end xl:flex ${isRtl ? "-right-[390px]" : "-left-[390px]"}`}
+        className={`absolute bottom-0 hidden w-[clamp(260px,20vw,360px)] items-end xl:flex ${isRtl ? "right-0 justify-end" : "left-0 justify-start"}`}
       >
         <Avatar />
       </motion.div>
@@ -49,6 +50,20 @@ const About = () => {
           >
             {t("about.summary")}
           </motion.p>
+
+          <motion.a
+            variants={fadeIn("right", 0.5)}
+            initial="hidden"
+            animate="show"
+            href="https://www.linkedin.com/in/hamza-mathlouthi-a23023338?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Hamza Mathlouthi on LinkedIn"
+            className="mx-auto mb-6 inline-flex min-h-11 items-center gap-2 self-center rounded-lg border border-[#0A66C2]/60 bg-[#0A66C2]/10 px-4 py-2 text-[#70b7ff] transition-colors hover:bg-[#0A66C2] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#70b7ff] xl:mx-0 xl:self-start"
+          >
+            <BsLinkedin className="text-xl" aria-hidden />
+            <span>LinkedIn</span>
+          </motion.a>
 
           {/* counters */}
           <motion.div

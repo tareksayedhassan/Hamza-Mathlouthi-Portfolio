@@ -49,7 +49,13 @@ const Contact = () => {
           </motion.h2>
           <motion.div variants={fadeIn("up", 0.3)} initial="hidden" animate="show" className="text-center text-white/60 mb-8">
             <div>{t("contact.location")}</div>
-            <a className="hover:text-accent transition-colors" href={`tel:${t("contact.phone").replace(/[^+\d]/g, "")}`}>{t("contact.phone")}</a>
+            <a
+              className="inline-block transition-colors hover:text-accent"
+              href={`tel:${t("contact.phone").replace(/[^+\d]/g, "")}`}
+              dir="ltr"
+            >
+              {t("contact.phone")}
+            </a>
           </motion.div>
 
           {/* form */}
